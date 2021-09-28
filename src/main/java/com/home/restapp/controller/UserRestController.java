@@ -4,6 +4,8 @@ import com.home.restapp.model.Role;
 import com.home.restapp.model.User;
 import com.home.restapp.serviece.RoleService;
 import com.home.restapp.serviece.UserService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,7 +38,12 @@ public class UserRestController {
     @PostMapping("/users")
     public void addUser(@RequestBody User user) {
         userService.add(user);
-        //return user;
+    }
+
+    @GetMapping("/getAuthorizedUser")
+    public ResponseEntity<User> getAuthorizedUser() {
+        User authorizedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return ResponseEntity.ok().body(authorizedUser);
     }
 }
 
