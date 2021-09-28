@@ -78,7 +78,7 @@
                             </div>
                             <div class="container bg-white">
                                 <form class="form-signin mx-auto font-weight-bold text-center p-3"
-                                      style="width: 300px;" th:action="@{/add}" method="post" th:object="${newUser}">
+                                      style="width: 300px;" th:object="${newUser}">
                                     <p>
                                         <label for="newName">First name</label>
                                         <input class="form-control form-control-sm" type="text"
@@ -110,7 +110,7 @@
                                             </option>
                                         </select>
                                     </p>
-                                    <button class="btn btn-success" type="submit">Add new user</button>
+                                    <button class="btn btn-success" onclick="addNewUser()">Add new user</button>
                                 </form>
                             </div>
                         </div>
@@ -145,6 +145,7 @@
 
 
     <script src="../static/listUser.js"></script>
+    <script src="../static/addNewUser.js"></script>
     <script src="../static/userInfo.js"></script>
     <script src="../static/pageHeader.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
