@@ -55,25 +55,4 @@ public class UserController {
         model.addAttribute("listRoles", roleService.listRole());
         return "user";
     }
-
-    //удаление пользователя
-    @DeleteMapping("/{id}")
-    public String deleteUser(@PathVariable("id") long id) {
-        System.out.println("DELETE " + id);
-        userService.delete(id);
-        return "redirect:/admin";
-    }
-
-    //обработка редактирования пользователя
-    @PatchMapping("/edit")
-    public String editUser(@ModelAttribute("editUser") User user,
-                           @RequestParam("rolesArr") Integer[] rolesId) {
-        Set<Role> setRole = new HashSet<>();
-        for (int id : rolesId) {
-            setRole.add(roleService.getRoleById(id));
-        }
-        user.setRoles(setRole);
-        userService.update(user);
-        return "redirect:/admin";
-    }
 }

@@ -43,7 +43,6 @@ public class UserRestController {
 
     @GetMapping("/roles")
     public List<Role> getListRoles() {
-        System.out.println("getRoles");
         List<Role> listRole = roleService.listRole();
         return listRole;
     }
