@@ -42,4 +42,5 @@ function addNewUser() {
          let result = await response.json()
          console.log("message " + result.message)
     }
+    alert("last")
 }
