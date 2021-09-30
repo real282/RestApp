@@ -49,7 +49,6 @@ public class UserController {
 
     @GetMapping("/user")
     public String printIndexUser(Model model) {
-        System.out.println("getUser");
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("loggedUser", userDetails);
         model.addAttribute("listRoles", roleService.listRole());
