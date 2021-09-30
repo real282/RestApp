@@ -49,23 +49,11 @@ public class UserController {
 
     @GetMapping("/user")
     public String printIndexUser(Model model) {
+        System.out.println("getUser");
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("loggedUser", userDetails);
         model.addAttribute("listRoles", roleService.listRole());
         return "user";
-    }
-
-    //Добавление пользователя
-    @PostMapping("/add")
-    public String addUser(@ModelAttribute("newUser") User user,
-                          @RequestParam("rolesArr") Integer[] rolesId) {
-        Set<Role> setRole = new HashSet<>();
-        for (int id : rolesId) {
-            setRole.add(roleService.getRoleById(id));
-        }
-        user.setRoles(setRole);
-        userService.add(user);
-        return "redirect:/admin";
     }
 
     //удаление пользователя

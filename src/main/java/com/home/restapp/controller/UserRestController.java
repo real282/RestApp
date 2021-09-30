@@ -35,15 +35,24 @@ public class UserRestController {
         return user;
     }
 
-    @PostMapping("/users")
-    public void addUser(@RequestBody User user) {
-        userService.add(user);
-    }
-
     @GetMapping("/getAuthorizedUser")
     public ResponseEntity<User> getAuthorizedUser() {
         User authorizedUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return ResponseEntity.ok().body(authorizedUser);
+    }
+
+    @GetMapping("/roles")
+    public List<Role> getListRoles() {
+        System.out.println("getRoles");
+        List<Role> listRole = roleService.listRole();
+        return listRole;
+    }
+
+    @PostMapping("/user")
+    public User newUser(@RequestBody User user) {
+        System.out.println("new user");
+        userService.add(user);
+        return user;
     }
 }
 
