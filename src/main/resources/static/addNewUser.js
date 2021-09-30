@@ -9,11 +9,13 @@ function addNewUser() {
         response.json().then((roles) => {
             let listRoles = roles
             for (let i = 0; i < selected.length; i++) {
-                newRoles.push(listRoles[selected[i] - 1].role)
+                let role = {id: listRoles[selected[i] - 1].id, name: listRoles[selected[i] - 1].role}
+                newRoles.push(role)
             }
+            console.log(newRoles)
             createUser()
             sendFetch().then(r =>
-            console.log(r))
+                console.log(r))
             alert("sendFetch")
 
         })
@@ -29,18 +31,21 @@ function addNewUser() {
         }
     }
 
-     async function sendFetch() {
-        console.log(JSON.stringify(user))
-         let response = await fetch('/api/user', {
-             method: 'POST',
-             headers: {
-                 'Content-Type': 'application/json;charset=utf-8'
-             },
-             body: JSON.stringify(user)
-         })
+    function sendFetch() {
+        alert("JSON " + JSON.stringify(user))
+        console.log(user);
 
-         let result = await response.json()
-         console.log("message " + result.message)
+        fetch('/api/user', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify(user)
+        })
+            .then((response) => {
+                response.json().then((userNew) => {
+                    alert(userNew)
+                })
+            })
     }
-    alert("last")
 }
