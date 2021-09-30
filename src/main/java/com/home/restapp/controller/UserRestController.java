@@ -50,8 +50,8 @@ public class UserRestController {
     @PostMapping("/user")
     public User newUser(@RequestBody User user) {
         System.out.println("new user");
-        userService.add(user);
-        return user;
+        //userService.add(user);
+        return userService.getUserById(1);
     }
 }
 
