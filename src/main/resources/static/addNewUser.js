@@ -47,5 +47,6 @@ function addNewUser() {
                     alert(userNew)
                 })
             })
+        listUser()
     }
 }
