@@ -36,7 +36,16 @@ function addNewUser() {
                 response.json().then((userNew) => {
                     newUser.push(userNew)
                     outputUserInfoTable(newUser)
+                    document.querySelector('#nav-userTable-tab').click()
+                    clearFormNewUser()
                 })
             })
+    }
+
+    function clearFormNewUser() {
+        document.getElementById("newName").value = ""
+        document.getElementById("newLastName").value = ""
+        document.getElementById("newPasswd").value = ""
+        document.getElementById("newEmail").value = ""
     }
 }
