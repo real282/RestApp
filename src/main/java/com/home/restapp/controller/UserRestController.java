@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping(value = "/api")
@@ -49,8 +50,8 @@ public class UserRestController {
 
     @PostMapping("/user")
     public User newUser(@RequestBody User user) {
-        System.out.println("new user");
         userService.add(user);
+        System.out.println(user);
         return user;
     }
 }

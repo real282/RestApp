@@ -1,5 +1,6 @@
 function addNewUser() {
     let user
+    let newUser = []
     let select = document.getElementById("newRoles")
     let newRoles = []
     let selected = Array.from(select.options)
@@ -9,19 +10,14 @@ function addNewUser() {
         response.json().then((roles) => {
             let listRoles = roles
             for (let i = 0; i < selected.length; i++) {
-                let role = {id: listRoles[selected[i] - 1].id, name: listRoles[selected[i] - 1].role}
+                let role = {id: listRoles[selected[i] - 1].id, role: listRoles[selected[i] - 1].role}
                 newRoles.push(role)
             }
-            console.log(newRoles)
-            createUser()
-            sendFetch().then(r =>
-                console.log(r))
-            alert("sendFetch")
-
+            sendDataUser()
         })
     })
 
-    function createUser() {
+    function sendDataUser() {
         user = {
             name: document.getElementById("newName").value,
             lastName: document.getElementById("newLastName").value,
@@ -29,12 +25,6 @@ function addNewUser() {
             password: document.getElementById("newPasswd").value,
             roles: newRoles
         }
-    }
-
-    function sendFetch() {
-        alert("JSON " + JSON.stringify(user))
-        console.log(user);
-
         fetch('/api/user', {
             method: 'POST',
             headers: {
@@ -44,9 +34,9 @@ function addNewUser() {
         })
             .then((response) => {
                 response.json().then((userNew) => {
-                    alert(userNew)
+                    newUser.push(userNew)
+                    outputUserInfoTable(newUser)
                 })
             })
-        listUser()
     }
 }
