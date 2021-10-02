@@ -32,11 +32,11 @@ function outputUserInfoTable(users) {
         cell4.innerHTML = strRoles
         let cell5 = row.insertCell()
         cell5.innerHTML =
-            '<button type="button" onclick="modalEdit(' + users[i].id + ')" class="btn btn-primary btn-sm">Edit</button>'
+            '<button type="button" onclick="actionScryptEdit(' + users[i].id + ')"  data-toggle="modal" data-target="#editModalWindow" class="btn btn-primary btn-sm">Edit</button>'
 
         let cell6 = row.insertCell()
         cell6.innerHTML =
-            '<button type="button" onclick="modalDelete(' + users[i].id + ')" class="btn btn-danger btn-sm">Delete</button>'
+            '<button type="button" onclick="actionScryptDelete(' + users[i].id + ')" data-toggle="modal" data-target="#deleteModalWindow" class="btn btn-danger btn-sm">Delete</button>'
 
     }
 }

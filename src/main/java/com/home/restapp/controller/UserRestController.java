@@ -30,8 +30,9 @@ public class UserRestController {
         return userList;
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/user/{id}")
     public User showUserById(@PathVariable("id") long id) {
+        System.out.println("запрос юзера" + id);
         User user = userService.getUserById(id);
         return user;
     }

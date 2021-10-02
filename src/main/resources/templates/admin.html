@@ -32,7 +32,7 @@
     </div>
 
     <div class="col-9 tab-content" id="v-pills-tabContent">
-<!--        Вкладка ADMIN-->
+        <!--        Вкладка ADMIN-->
         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
             <h2>Admin panel</h2>
             <div class="card text-center">
@@ -54,23 +54,113 @@
                             <div class="m-3">
                                 <h5 class="text-left">All users</h5>
                             </div>
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last name</th>
-                                        <th scope="col">E-mail</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col">Edit</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="usersListTable">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">First Name</th>
+                                    <th scope="col">Last name</th>
+                                    <th scope="col">E-mail</th>
+                                    <th scope="col">Role</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody id="usersListTable">
 
-                                    </tbody>
-                                </table>
+                                </tbody>
+                            </table>
                         </div>
+
+                        <!--                        Модалка Edit-->
+
+                        <div class="modal fade" tabindex="-1" id="editModalWindow"
+                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-container">
+                                            <div>ID</div>
+                                            <input class="form-control" type="text" id="idEdit">
+                                            <div>First name</div>
+                                            <input class="form-control" type="text" id="nameEdit">
+                                            <div>Last name</div>
+                                            <input class="form-control" type="text" id="lastNameEdit">
+                                            <div>Email</div>
+                                            <input class="form-control" type="text" id="emailEdit">
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect2">Roles</label>
+                                                <select multiple class="form-control"
+                                                        id="exampleFormControlSelect2">
+                                                    <option id = "selectEdit"></option>
+                                                </select>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close
+                                                </button>
+                                                <button type="submit" class="btn btn-primary btn-sm">Edit
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--                        Модалка Delete-->
+                        <div class="modal fade" tabindex="-1" id="deleteModalWindow"
+                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Delete user</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form class="form-container">
+                                            <div>ID</div>
+                                            <input class="form-control" type="text" id="idDelete"
+                                                   readonly>
+                                            <div>First name</div>
+                                            <input class="form-control" type="text" id="nameDelete"
+                                                   readonly>
+                                            <div>Last name</div>
+                                            <input class="form-control" type="text" id="lastNameDelete"
+                                                   readonly>
+                                            <div>Email</div>
+                                            <input class="form-control" type="text" id="emailDelete"
+                                                   readonly>
+                                            <div class="form-group">
+                                                <label for="exampleFormControlSelect2">Roles</label>
+                                                <select multiple class="form-control"
+                                                         readonly>
+                                                    <option id="selectDelete"></option>
+                                                </select>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close
+                                                </button>
+                                                <button type="submit" class="btn btn-danger">Delete
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="tab-pane fade" id="nav-newUser" role="tabpanel" aria-labelledby="nav-newUser-tab">
                             <div class="m-3">
@@ -110,7 +200,8 @@
                                             </option>
                                         </select>
                                     </p>
-                                    <button type = "button" class="btn btn-success" onclick="addNewUser()">Add new user</button>
+                                    <button type="button" class="btn btn-success" onclick="addNewUser()">Add new user
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -118,7 +209,6 @@
                 </div>
             </div>
         </div>
-
 
 
         <!--Вкладка USER-->
@@ -134,12 +224,13 @@
                     <th scope="col">Role</th>
                 </tr>
                 </thead>
-                <tbody id = "userInfo">
+                <tbody id="userInfo">
 
                 </tbody>
             </table>
         </div>
     </div>
+
 
     <!-- Optional JavaScript -->
 
@@ -148,6 +239,8 @@
     <script src="../static/addNewUser.js"></script>
     <script src="../static/userInfo.js"></script>
     <script src="../static/pageHeader.js"></script>
+    <script src="../static/modalDelete.js"></script>
+    <script src="../static/modalEdit.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
