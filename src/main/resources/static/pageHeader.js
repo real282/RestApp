@@ -1,5 +1,4 @@
 fetch("/api/getAuthorizedUser").then((response) => {
-    console.log("PAGE HEADER!")
     response.json().then((user) => {
         document.getElementById("headerMail").innerText = user.email
         let rolesUser = user.roles
