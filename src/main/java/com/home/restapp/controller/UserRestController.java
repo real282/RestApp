@@ -55,6 +55,11 @@ public class UserRestController {
         System.out.println(user);
         return user;
     }
+
+    @DeleteMapping("/user/{id}")
+    public void deleteUser(@PathVariable("id") long id) {
+        userService.delete(id);
+    }
 }
 
 
