@@ -88,13 +88,15 @@
                                     <div class="modal-body">
                                         <form class="form-container">
                                             <div>ID</div>
-                                            <input class="form-control" type="text" id="idEdit">
+                                            <input class="form-control" type="text" id="idEdit" readonly>
                                             <div>First name</div>
                                             <input class="form-control" type="text" id="nameEdit">
                                             <div>Last name</div>
                                             <input class="form-control" type="text" id="lastNameEdit">
                                             <div>Email</div>
                                             <input class="form-control" type="text" id="emailEdit">
+                                            <div>Password</div>
+                                            <input class="form-control" type="text" id="passwordEdit">
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect2">Roles</label>
                                                 <select multiple class="form-control"
@@ -104,9 +106,9 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Close
+                                                        data-dismiss="modal" id="closeEdit">Close
                                                 </button>
-                                                <button type="button" onclick="editButton" class="btn btn-primary btn-sm">Edit
+                                                <button type="button" onclick="editButton()" class="btn btn-primary btn-sm">Edit
                                                 </button>
                                             </div>
                                         </form>
@@ -144,8 +146,8 @@
                                             <div class="form-group">
                                                 <label for="exampleFormControlSelect2">Roles</label>
                                                 <select multiple class="form-control"
-                                                         readonly>
-                                                    <option id="selectDelete"></option>
+                                                         readonly id="selectDelete">
+
                                                 </select>
                                             </div>
                                             <div class="modal-footer">

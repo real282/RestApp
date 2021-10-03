@@ -60,6 +60,15 @@ public class UserRestController {
     public void deleteUser(@PathVariable("id") long id) {
         userService.delete(id);
     }
+
+    @PatchMapping("/user/")
+    public User editUser(@RequestBody User user) {
+        System.out.println("edit user ");
+        System.out.println(user.toString());
+        userService.update(user);
+        System.out.println(user.toString());
+        return user;
+    }
 }
 
 

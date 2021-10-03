@@ -1,3 +1,8 @@
+let userList =[]
+let newRoles =[]
+let role = {id: "1", role: "ROLE_ADMIN"}
+newRoles.push(role)
+
 function actionScryptEdit(id) {
     let options = []
     fetch("/api/user/" + id).then((response) => {
@@ -6,6 +11,7 @@ function actionScryptEdit(id) {
             document.getElementById("nameEdit").value = user.name
             document.getElementById("lastNameEdit").value = user.lastName
             document.getElementById("emailEdit").value = user.email
+            document.getElementById("passwordEdit").value = user.password
             let select = document.getElementById("selectEdit")
 
             let rolesUser = user.roles
@@ -19,14 +25,32 @@ function actionScryptEdit(id) {
 }
 
 function editButton() {
-
-    fetch("/api/user/" + idUser, {
-        method: "DELETE"
-    }).then((response) => {
-        console.log(response)
-        document.querySelector('#closeDelete').click()
-        let idTable = document.getElementById("usersListTable")
-        idTable.innerHTML = ""
-        listUser()
+    let user = {
+        id: document.getElementById("idEdit").value,
+        name: document.getElementById("nameEdit").value,
+        lastName: document.getElementById("lastNameEdit").value,
+        email: document.getElementById("emailEdit").value,
+        password: document.getElementById("passwordEdit").value,
+        roles: newRoles
+    }
+    fetch("/api/user/", {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json;charset=utf-8"
+        },
+        body: JSON.stringify(user)
     })
+        .then((response) => {
+            response.json().then((userNew) => {
+                userList.push(userNew)
+                document.querySelector('#closeEdit').click()
+                let idTable = document.getElementById("usersListTable")
+                idTable.innerHTML = ""
+                listUser()
+
+            })
+        })
 }
+
+
+
