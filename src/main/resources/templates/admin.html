@@ -14,9 +14,9 @@
 <body>
 <div class="p-2 text-white bg-dark">
     <div class="row">
-        <div class="m-2 font-weight-bold" th:utext="${loggedUser.getEmail()}">&nbsp</div>
+        <div class="m-2 font-weight-bold" id = "headerMail">&nbsp</div>
         <div class="m-2">witch roles:</div>
-        <div class="col-9 m-2 text-uppercase" th:utext="${loggedUser.getRoles()}"></div>
+        <div class="col-9 m-2 text-uppercase" id="headerRole"></div>
         <a class="m-2 text-right text-secondary text-decoration-none" th:href="@{/logout}"> Logout </a>
     </div>
 </div>

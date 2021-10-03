@@ -15,9 +15,9 @@
 <body>
 <div class="p-2 text-white bg-dark">
     <div class="row">
-        <div class="m-2 font-weight-bold" th:utext="${loggedUser.getEmail()}">&nbsp</div>
+        <div class="m-2 font-weight-bold" id="headerMail">&nbsp</div>
         <div class="m-2">witch roles:</div>
-        <div class="col-9 m-2 text-uppercase" th:utext="${loggedUser.getRoles()}"></div>
+        <div class="col-9 m-2 text-uppercase" id="headerRole"></div>
         <a class="m-2 text-right text-secondary text-decoration-none" th:href="@{/logout}"> Logout </a>
     </div>
 </div>
@@ -63,6 +63,7 @@
     </div>
 </div>
 
+<script src="../static/pageHeader.js"></script>
 <script src="../static/userInfo.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
