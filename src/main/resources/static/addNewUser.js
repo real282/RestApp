@@ -10,6 +10,7 @@ function addNewUser() {
         response.json().then((roles) => {
             let listRoles = roles
             for (let i = 0; i < selected.length; i++) {
+                console.log(listRoles[i])
                 let role = {id: listRoles[selected[i] - 1].id, role: listRoles[selected[i] - 1].role}
                 newRoles.push(role)
             }

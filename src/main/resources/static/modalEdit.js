@@ -1,5 +1,5 @@
-let userList =[]
-let newRoles =[]
+let userList = []
+let newRoles = []
 let role = {id: "1", role: "ROLE_ADMIN"}
 newRoles.push(role)
 
@@ -12,19 +12,40 @@ function actionScryptEdit(id) {
             document.getElementById("lastNameEdit").value = user.lastName
             document.getElementById("emailEdit").value = user.email
             document.getElementById("passwordEdit").value = user.password
-            let select = document.getElementById("selectEdit")
 
+            let idSelect = document.getElementById("selectEdit")
+            idSelect.innerHTML = ""
             let rolesUser = user.roles
             for (let j = 0; j < rolesUser.length; j++) {
                 options.push(rolesUser[j].role)
             }
-            console.log(options)
+            for (let i = 0; i < options.length; i++) {
+                console.log(i)
+                idSelect.innerHTML += "<option id=\"selectEdit" + i + "\">" + options[i] + "</option>"
+            }
 
         })
     })
 }
 
 function editButton() {
+    let select = document.getElementById("selectEdit")
+    let newRoles = []
+    let selected = Array.from(select.options)
+        .filter(option => option.selected)
+        .map(option => option.value)
+    let idNew
+    for (let i = 0; i < selected.length; i++) {
+        if (selected[i] == "ROLE_ADMIN") {
+            idNew = 1
+        }
+        if (selected[i] == "ROLE_USER") {
+            idNew = 2
+        }
+        let role = {id: idNew, role: selected[i]}
+        console.log(role)
+        newRoles.push(role)
+    }
     let user = {
         id: document.getElementById("idEdit").value,
         name: document.getElementById("nameEdit").value,
