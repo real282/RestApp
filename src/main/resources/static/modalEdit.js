@@ -15,14 +15,20 @@ function actionScryptEdit(id) {
 
             let idSelect = document.getElementById("selectEdit")
             idSelect.innerHTML = ""
-            let rolesUser = user.roles
-            for (let j = 0; j < rolesUser.length; j++) {
-                options.push(rolesUser[j].role)
-            }
-            for (let i = 0; i < options.length; i++) {
-                console.log(i)
-                idSelect.innerHTML += "<option id=\"selectEdit" + i + "\">" + options[i] + "</option>"
-            }
+            fetch("/api/roles").then((response) => {
+                response.json().then((roles) => {
+                    let rolesUser = roles
+                    for (let j = 0; j < rolesUser.length; j++) {
+                        options.push(rolesUser[j].role)
+                    }
+                    for (let i = 0; i < options.length; i++) {
+                        console.log(i)
+                        idSelect.innerHTML += "<option id=\"selectEdit" + i + "\">" + options[i] + "</option>"
+                    }
+                })
+            })
+
+
 
         })
     })
