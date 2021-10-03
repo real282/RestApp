@@ -17,7 +17,6 @@ function actionScryptDelete(id) {
             }
             console.log(options)
             for (let i = 0; i < options.length; i++) {
-                console.log(i)
                 idSelect.innerHTML += "<option id=\"selectDelete" + i + "\">" + options[i] + "</option>"
             }
         })
@@ -25,7 +24,6 @@ function actionScryptDelete(id) {
 }
 
 function deleteButton() {
-
     fetch("/api/user/" + idUser, {
         method: "DELETE"
     }).then((response) => {

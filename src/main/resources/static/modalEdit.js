@@ -1,7 +1,4 @@
 let userList = []
-let newRoles = []
-let role = {id: "1", role: "ROLE_ADMIN"}
-newRoles.push(role)
 
 function actionScryptEdit(id) {
     let options = []

@@ -1,7 +1,6 @@
 let idTableI = document.getElementById("userInfo")
 
 fetch("/api/getAuthorizedUser").then((response) => {
-    console.log("USER INFO!")
     response.json().then((user) => {
         let rolesUserI = user.roles
         let strRoles = ""
@@ -20,7 +19,6 @@ fetch("/api/getAuthorizedUser").then((response) => {
             strRoles += rolesUserI[j].role + " "
         }
         cell4.innerHTML = strRoles
-
     })
 })
 

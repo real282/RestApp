@@ -32,7 +32,6 @@ public class UserRestController {
 
     @GetMapping("/user/{id}")
     public User showUserById(@PathVariable("id") long id) {
-        System.out.println("запрос юзера" + id);
         User user = userService.getUserById(id);
         return user;
     }
@@ -52,7 +51,6 @@ public class UserRestController {
     @PostMapping("/user")
     public User newUser(@RequestBody User user) {
         userService.add(user);
-        System.out.println(user);
         return user;
     }
 
