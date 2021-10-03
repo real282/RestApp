@@ -25,12 +25,11 @@ function deleteButton() {
 
     fetch("/api/user/" + idUser, {
         method: "DELETE"
-    }).then((response) =>{
+    }).then((response) => {
         console.log(response)
         document.querySelector('#closeDelete').click()
         let idTable = document.getElementById("usersListTable")
         idTable.innerHTML = ""
         listUser()
     })
-
 }

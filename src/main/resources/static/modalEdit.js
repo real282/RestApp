@@ -17,3 +17,16 @@ function actionScryptEdit(id) {
         })
     })
 }
+
+function editButton() {
+
+    fetch("/api/user/" + idUser, {
+        method: "DELETE"
+    }).then((response) => {
+        console.log(response)
+        document.querySelector('#closeDelete').click()
+        let idTable = document.getElementById("usersListTable")
+        idTable.innerHTML = ""
+        listUser()
+    })
+}
