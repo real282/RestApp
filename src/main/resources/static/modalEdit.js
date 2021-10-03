@@ -22,14 +22,10 @@ function actionScryptEdit(id) {
                         options.push(rolesUser[j].role)
                     }
                     for (let i = 0; i < options.length; i++) {
-                        console.log(i)
                         idSelect.innerHTML += "<option id=\"selectEdit" + i + "\">" + options[i] + "</option>"
                     }
                 })
             })
-
-
-
         })
     })
 }
@@ -49,7 +45,6 @@ function editButton() {
             idNew = 2
         }
         let role = {id: idNew, role: selected[i]}
-        console.log(role)
         newRoles.push(role)
     }
     let user = {

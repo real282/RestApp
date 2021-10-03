@@ -63,10 +63,7 @@ public class UserRestController {
 
     @PatchMapping("/user/")
     public User editUser(@RequestBody User user) {
-        System.out.println("edit user ");
-        System.out.println(user.toString());
         userService.update(user);
-        System.out.println(user.toString());
         return user;
     }
 }
